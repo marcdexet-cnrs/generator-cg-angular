@@ -192,12 +192,17 @@ module.exports = function (grunt) {
       during_watch: {
         browsers: ['PhantomJS']
       },
+      debug: {
+        browsers: ['Chrome'],
+        singleRun: false
+      }
     }
   });
 
   grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngmin','uglify','copy','htmlmin','imagemin','clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+  grunt.registerTask('test_debug',['dom_munger:read','karma:debug']);
 
   grunt.event.on('watch', function(action, filepath) {
     //https://github.com/gruntjs/grunt-contrib-watch/issues/156
