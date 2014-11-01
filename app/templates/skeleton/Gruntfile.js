@@ -194,7 +194,8 @@ module.exports = function (grunt) {
       },
       debug: {
         browsers: ['Chrome'],
-        singleRun: false
+        singleRun: false,
+        autoWatch: true, //watching is not handled by grunt-contrib-watch for debug
       }
     }
   });
